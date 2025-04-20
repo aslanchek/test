@@ -20,6 +20,5 @@ jobs:
       - name: upload archive
         uses: actions/upload-artifact@v4
         with:
-          name: aboba
           path: data.tar.gz
 
