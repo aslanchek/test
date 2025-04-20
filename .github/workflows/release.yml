@@ -13,12 +13,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: make archive
-        run: |
-          tar czvf data.tar.gz data
-
       - name: upload archive
         uses: actions/upload-artifact@v4
         with:
-          path: data.tar.gz
+          path: data
 
