@@ -2,32 +2,24 @@ name: release tar
 
 on:
   push:
+    branches:
+      - master
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: make archive
-        uses: a7ul/tar-action@v1.1.0
-        with:
-          files: |
-            data
-          outPath:
-            data.tar.gz
-
-      - name: release
-        uses: actions/create-release@v1
-        id: create_release
-        with:
-          draft: false
-          prerelease: false
-          tag_name: ${{ github.ref }}
+        run: |
+          tar czvf test.tar.gz test
 
       - name: upload archive
         uses: actions/upload-artifact@v4
-        path: data.tar.gz
+        with:
+          name: aboba
+          path: data.tar.gz
 
