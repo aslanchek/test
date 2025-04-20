@@ -15,7 +15,7 @@ jobs:
 
       - name: make archive
         run: |
-          tar czvf test.tar.gz test
+          tar czvf data.tar.gz data
 
       - name: upload archive
         uses: actions/upload-artifact@v4
